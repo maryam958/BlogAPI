@@ -20,9 +20,7 @@ A secure and scalable RESTful API for managing posts and comments, built with No
 ## 🚀 Features
 
 - ✍️ Post Management (CRUD) – Create, read, update, and delete blog posts
-
 - 💬 Comment System – Users can comment on posts with proper user-post references
-
 - 🔐 User Authentication – Secure registration and login with hashed passwords and JWT tokens
 
 - 🧑 User Profiles – Includes user details like name, email, age, and phone
