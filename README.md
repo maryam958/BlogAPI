@@ -133,3 +133,31 @@ Authorization: "Bearer__"+jwt_token
 ![Login API](./imgs/login_req_res.png)
 
 [📬 Click here to open the login request](https://www.postman.com/graduation-space-584306/blogapi/request/023eu14/blogapi?action=share&creator=21090382&ctx=documentation)
+
+
+### 3. ChangePassword 
+- **Endpoint:** `POST /api/v1/auth/changePass`  
+- **Description:** Authenticate user and receive a JWT token for authorized requests.   
+- **Request Body (JSON):**
+```json
+ {
+    "email":"maryammohamedsobhygmail.com",
+    "password":"Pass123"
+ }
+```
+Successful Response (200 OK):
+
+```json
+{
+    "message": "Welcome, you are logged in now",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTJiM2I1YjdlMDI2NjE0MjJlNzExMCIsImlhdCI6MTc1MDI1MTIyOSwiZXhwIjoxNzUwMjU0ODI5fQ.z-qfcy_KwX-tcXuPS5Pi5ZjeanxQp2UBTBCsTsoUg_k"
+}
+```
+
+💡 Save the returned JWT token. Use it as a Bearer token in the Authorization header for all protected endpoints.
+Authorization: "Bearer__"+jwt_token
+
+#### 📷Login API
+![Login API](./imgs/changePass_req_res.png)
+
+[📬 Click here to open the change_pass_request](https://www.postman.com/graduation-space-584306/blogapi/request/4n6eexd/blogapi?action=share&creator=21090382&ctx=documentation)
