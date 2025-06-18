@@ -62,85 +62,47 @@ Use **Postman** to interact with and test the API endpoints. Below are the key e
 - **Request Body (JSON):**
 ```json
 {
-    "userName": "maryam",
-    "email": "maryammohamedsobhy357@gmail.com",
-    "password": "Test123",
-    "cPassword": "Test123"
-
+    "userName":"Maryam",
+    "email":"maryammohamedsobhygmail.com",
+    "password":"Pass123",
+    "cPassword":"Pass123", 
+    "age":25, 
+    "phone":458796339
 }
 ```
 
 Successful Response (201 Created):
 ```json
 {
-    "message": "Registration successful. Please check your email to confirm your account.",
+    "message": "Registered successfully",
     "savedUser": {
-        "userName": "maryam",
-        "email": "maryammohamedsobhy357@gmail.com",
-        "password": "$2a$09$rRMFNFsj3zwX.PoqLCJLHO0T25qGZpCD6kwExEcd6tBa8ES1Ozqy6",
-        "role": "User",
-        "active": false,
-        "confirmEmail": false,
-       ...
+        "userName": "Maryam",
+        "email": "maryammohamedsobhygmail.com",
+        "password": "$2a$05$2NqyaqC6qOQ2TWNWgBh8m.dD7rcACv6XdCKwwNm7BTD2KI5ON69Fa",
+        "age": 25,
+        "phone": 458796339,
+        "_id": "6852b2d9b7e02661422e710c",
+        "__v": 0
     }
 }
 
 
 ```
-- Note: The user account is created but inactive until the email is confirmed.
 
 #### ⚠️ Edge Case:
-**Email Already Registered but Not Confirmed**
-If a user tries to register again using the same email without confirming it first, the API responds the following Response:
+**Email Already Registered**
+If a user tries to register again using the same email, the API responds the following Response:
 
 Response (409 Conflict):
 
 ```json
 {
-  "message": "This email is already registered but not yet confirmed. Please check your inbox to confirm your email."
+    "message": "Already register"
 }
 ```
-#### 🔗 Email Confirmation Flow
-
-After a user successfully registers, a **confirmation email** is sent to the provided email address.  
-To activate the account, the user **must click the confirmation link** in the email.
-
-> ℹ️ **Note:**
-> - The account remains **inactive** until the email is confirmed.
-> - Users **cannot log in or re-register** with the same email until confirmation is completed.
-
-#### ✅ Validation Rules
-The Sign Up endpoint uses Joi validation to ensure that user input meets specific criteria before processing. If validation fails, the API responds with a clear error message.
-- Validation Schema:
- ```json
-  {
-  "userName": "string (required) - minimum 2, maximum 20 characters",
-  "email": "string (required) - must be a valid email ending with .com or .net",
-  "password": "string (required) - must match a specific pattern",
-  "cPassword": "string (required) - must exactly match `password`"
-}
-```
-🔐 Password Pattern Requirements:
-- Must start with an uppercase letter
-- Followed by 3 to 8 lowercase letters or digits
-- Examples of valid passwords:
-Aabc1
-Zx12
-
-❌ If the password doesn’t match the pattern:
-You will receive an error message like:
-```json
-{
-  "message": "Not matching pattern"
-}
-```
-
 #### 📷 SignUp API
 ![SignUp Request & Response](./imgs/signup_req_res.png)
 
-#### 📷 Email Confirmation for Signing Up
-![Email Confirmation for Signing Up](./imgs/email_confirmation.png)
-
-[📬 Click here to open the signUp request](https://www.postman.com/graduation-space-584306/commerceapi/request/5ugm73s/commerceapi?action=share&creator=21090382&ctx=documentation)
+[📬 Click here to open the signUp request](https://www.postman.com/graduation-space-584306/blogapi/request/sw9yzxo/blogapi?action=share&creator=21090382&ctx=documentation)
 
 
